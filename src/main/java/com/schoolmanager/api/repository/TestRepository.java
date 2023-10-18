@@ -1,4 +1,7 @@
 package com.schoolmanager.api.repository;
 
-public interface TestRepository {
+import com.schoolmanager.api.model.Test;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TestRepository extends JpaRepository<Test,Integer> {
 }
