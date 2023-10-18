@@ -2,7 +2,7 @@ package com.schoolmanager.api.service;
 
 import com.schoolmanager.api.model.Classroom;
 import com.schoolmanager.api.model.User;
-import com.schoolmanager.api.repository.ClassRepository;
+import com.schoolmanager.api.repository.ClassroomRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,18 +10,18 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class ClassroomService {
-    private ClassRepository classRepository;
+    private ClassroomRepository classroomRepository;
 
     public void save(Classroom classroom){
-        classRepository.save(classroom);
+        classroomRepository.save(classroom);
     }
-    public User findById(Integer id){
-        return classRepository.findById(id).get();
+    public Classroom findById(Integer id){
+        return classroomRepository.findById(id).get();
     }
-    public List<User> findAll(){
-        return classRepository.findAll();
+    public List<Classroom> findAll(){
+        return classroomRepository.findAll();
     }
     public void delete(Integer id){
-        classRepository.deleteById(id);
+        classroomRepository.deleteById(id);
     }
 }

@@ -18,12 +18,12 @@ public class ClassroomController {
     }
 
     @GetMapping("/{id}")
-    public User findOneById(@PathVariable Integer id){
+    public Classroom findOneById(@PathVariable Integer id){
         return classroomService.findById(id);
     }
 
     @GetMapping()
-    public Collection<User> findAll(){
+    public Collection<Classroom> findAll(){
         return classroomService.findAll();
     }
 

@@ -12,7 +12,7 @@ public class Classroom {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "classname")
+    @Column(name = "classname", length = 15, unique = true)
     private String className;
 
     @ManyToOne
