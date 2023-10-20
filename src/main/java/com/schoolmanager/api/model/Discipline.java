@@ -13,11 +13,11 @@ import lombok.NoArgsConstructor;
 public class Discipline {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String disciplineName;
 
-    private int workload;
+    private Integer workload;
 
 }
 

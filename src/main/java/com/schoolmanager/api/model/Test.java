@@ -12,12 +12,12 @@ import lombok.NoArgsConstructor;
 public class Test {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
-    private double grade;
+    private Double grade;
 
     @ManyToOne
-    private User student;
+    private Classroom classroom;
 
     @ManyToOne
     private Discipline discipline;

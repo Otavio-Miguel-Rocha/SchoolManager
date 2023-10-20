@@ -14,7 +14,7 @@ import java.util.List;
 public class Classroom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "classname", length = 15, unique = true)
     private String className;
@@ -24,4 +24,7 @@ public class Classroom {
 
     @OneToMany
     private List<Student> students;
+
+    @OneToMany
+    private List<Test> tests;
 }
