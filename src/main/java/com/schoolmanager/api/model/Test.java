@@ -17,7 +17,7 @@ public class Test {
     private Double grade;
 
     @ManyToOne
-    private Classroom classroom;
+    private Student student;
 
     @ManyToOne
     private Discipline discipline;

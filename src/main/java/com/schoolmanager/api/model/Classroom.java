@@ -19,12 +19,9 @@ public class Classroom {
     @Column(name = "classname", length = 15, unique = true)
     private String className;
 
-    @OneToMany
+    @OneToMany(mappedBy = "classrooms")
     private List<Professor> professors;
 
-    @OneToMany
+    @OneToMany(mappedBy = "classroom")
     private List<Student> students;
-
-    @OneToMany
-    private List<Test> tests;
 }
