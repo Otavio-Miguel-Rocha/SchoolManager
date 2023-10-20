@@ -15,11 +15,9 @@ public class Discipline {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "discipline_name")
     private String disciplineName;
 
     private int workload;
 
-    // Getters and setters
 }
 

@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "user_enum")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +25,15 @@ public class User {
 
     @Column(nullable = false, length = 30)
     private String password;
+
     private String address;
-    @Column(nullable = false)
-    @Enumerated(value = EnumType.STRING)
-    private UserEnum userEnum;
+
+    public User(User user){
+        this.id = user.getId();
+        this.username = user.getUsername();
+        this.password = user.getPassword();
+        this.age = user.getAge();
+        this.address = user.getAddress();
+    }
+
 }

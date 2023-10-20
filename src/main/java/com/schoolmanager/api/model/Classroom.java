@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -17,9 +19,9 @@ public class Classroom {
     @Column(name = "classname", length = 15, unique = true)
     private String className;
 
-    @ManyToOne
-    @JoinColumn(name = "id_professor")
-    private User professor;
+    @OneToMany
+    private List<Professor> professors;
 
-    // Getters and setters
+    @OneToMany
+    private List<Student> students;
 }
