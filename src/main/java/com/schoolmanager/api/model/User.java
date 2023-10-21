@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "user_enum")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,12 +27,17 @@ public class User {
 
     private String address;
 
+    @Enumerated(value = EnumType.STRING)
+    @Column(nullable = false)
+    private UserEnum userEnum;
+
     public User(User user){
         this.id = user.getId();
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.age = user.getAge();
         this.address = user.getAddress();
+        this.userEnum = user.getUserEnum();
     }
 
 }

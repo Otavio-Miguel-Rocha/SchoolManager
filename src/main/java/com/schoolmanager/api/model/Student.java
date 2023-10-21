@@ -2,15 +2,19 @@ package com.schoolmanager.api.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.Set;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@DiscriminatorValue("STUDENT")
+@Data
+
 public class Student extends User {
     @ManyToOne
     private Classroom classroom;

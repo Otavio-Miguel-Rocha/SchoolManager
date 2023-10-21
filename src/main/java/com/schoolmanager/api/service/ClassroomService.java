@@ -1,7 +1,6 @@
 package com.schoolmanager.api.service;
 
 import com.schoolmanager.api.model.Classroom;
-import com.schoolmanager.api.model.User;
 import com.schoolmanager.api.repository.ClassroomRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,11 +9,12 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class ClassroomService {
-    private ClassroomRepository classroomRepository;
+    private final ClassroomRepository classroomRepository;
 
     public void save(Classroom classroom){
         classroomRepository.save(classroom);
     }
+
     public Classroom findById(Integer id){
         return classroomRepository.findById(id).get();
     }

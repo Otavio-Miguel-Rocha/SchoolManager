@@ -1,9 +1,7 @@
 package com.schoolmanager.api.service;
 
 import com.schoolmanager.api.model.Test;
-import com.schoolmanager.api.model.User;
 import com.schoolmanager.api.repository.TestRepository;
-import com.schoolmanager.api.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public class TestService {
 
-    private TestRepository testRepository;
+    private final TestRepository testRepository;
     public void save(Test test){
         testRepository.save(test);
     }

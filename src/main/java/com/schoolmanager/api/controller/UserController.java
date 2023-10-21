@@ -34,15 +34,9 @@ public class UserController {
         userService.delete(id);
     }
 
-    @PostMapping("/{enum}")
-    public void post(@RequestBody User user, @PathVariable UserEnum enumerator){
-        if(enumerator == UserEnum.PROFESSOR){
-            userService.save(new Professor(user));
-        } else if(enumerator == UserEnum.SECRETARY){
-            userService.save(new Secretary(user));
-        } else if(enumerator == UserEnum.STUDENT){
-            userService.save(new Student(user));
-        }
+    @PostMapping
+    public void post(@RequestBody User user){
+        userService.save(user);
     }
 
     @PutMapping

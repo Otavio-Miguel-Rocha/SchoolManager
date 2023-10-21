@@ -1,5 +1,6 @@
 package com.schoolmanager.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,12 +17,14 @@ public class Classroom {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "classname", length = 15, unique = true)
+    @Column(name = "classname", length = 15, unique = true, nullable = false)
     private String className;
 
     @OneToMany(mappedBy = "classrooms")
+    @JsonIgnore
     private List<Professor> professors;
 
     @OneToMany(mappedBy = "classroom")
+    @JsonIgnore
     private List<Student> students;
 }

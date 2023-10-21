@@ -6,8 +6,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum UserEnum {
-    PROFESSOR("Professor"),
-    STUDENT("Student"),
-    SECRETARY("Secretary");
-    String nivelAcesso;
+    PROFESSOR(),
+    STUDENT(),
+    SECRETARY();
 }
