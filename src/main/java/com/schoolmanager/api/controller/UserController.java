@@ -1,9 +1,6 @@
 package com.schoolmanager.api.controller;
 
-import com.schoolmanager.api.model.Secretary;
-import com.schoolmanager.api.model.Student;
-import com.schoolmanager.api.model.Professor;
-import com.schoolmanager.api.model.User;
+import com.schoolmanager.api.model.*;
 import com.schoolmanager.api.model.enums.UserEnum;
 import com.schoolmanager.api.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +10,14 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    private UserService userService;
+    private final UserService userService;
 
     public UserController(UserService userService){
         this.userService = userService;
     }
 
-    @GetMapping("/login")
-    public User validation(@RequestBody User user){
+    @PostMapping("/login")
+    public User validation(@RequestBody UserValidation user){
         return userService.validation(user);
     }
 

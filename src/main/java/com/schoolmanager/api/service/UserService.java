@@ -1,9 +1,6 @@
 package com.schoolmanager.api.service;
 
-import com.schoolmanager.api.model.Professor;
-import com.schoolmanager.api.model.Secretary;
-import com.schoolmanager.api.model.Student;
-import com.schoolmanager.api.model.User;
+import com.schoolmanager.api.model.*;
 import com.schoolmanager.api.model.enums.UserEnum;
 import com.schoolmanager.api.repository.ProfessorRepository;
 import com.schoolmanager.api.repository.SecretaryRepository;
@@ -50,7 +47,7 @@ public class UserService {
     }
 
 
-    public User validation(User user){
+    public User validation(UserValidation user){
         User userValidation = findById(user.getId());
         if(userValidation.getPassword().equals(user.getPassword())){
             return userValidation;
