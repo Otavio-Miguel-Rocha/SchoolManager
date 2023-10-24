@@ -1,5 +1,6 @@
 package com.schoolmanager.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +18,7 @@ import java.util.Set;
 
 public class Student extends User {
     @ManyToOne
+    @JsonIgnore
     private Classroom classroom;
 
 

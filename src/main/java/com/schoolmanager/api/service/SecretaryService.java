@@ -2,6 +2,7 @@ package com.schoolmanager.api.service;
 
 import com.schoolmanager.api.model.*;
 import com.schoolmanager.api.model.enums.UserEnum;
+import com.schoolmanager.api.repository.SecretaryRepository;
 import com.schoolmanager.api.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,14 +13,16 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class SecretaryService {
-    private final Secretary secretary;
     private final UserRepository userRepository;
+    private final SecretaryRepository secretaryRepository;
 
-    public List<ReportCard> generateReportCardByClass(Classroom classroom) {
+    public List<ReportCard> generateReportCardByClass(Classroom classroom, Secretary secretary) {
         List<ReportCard> reportCards = new ArrayList<>();
         for (Student student : classroom.getStudents()) {
             reportCards.add(secretary.generateReportCard(student));
         }
+        secretary.setAmountReportCard(secretary.getAmountReportCard()+ classroom.getStudents().size());
+        secretaryRepository.save(secretary);
         return reportCards;
     }
 

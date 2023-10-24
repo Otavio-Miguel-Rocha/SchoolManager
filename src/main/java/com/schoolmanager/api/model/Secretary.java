@@ -1,6 +1,7 @@
 package com.schoolmanager.api.model;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Data
 public class Secretary extends User{
 
-    private Integer amountReportCard;
+    private Integer amountReportCard = 0;
 
     public Secretary(User user){
         super(user);

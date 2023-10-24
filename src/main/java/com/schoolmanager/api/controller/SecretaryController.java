@@ -1,10 +1,14 @@
 package com.schoolmanager.api.controller;
 
+import com.schoolmanager.api.model.ReportCard;
+import com.schoolmanager.api.model.Secretary;
 import com.schoolmanager.api.model.User;
 import com.schoolmanager.api.service.ClassroomService;
 import com.schoolmanager.api.service.SecretaryService;
 import com.schoolmanager.api.service.UserService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/secretary")
@@ -26,9 +30,10 @@ public class SecretaryController {
     }
 
     @PostMapping("/class/{idClass}")
-    public User generateReportCard(@PathVariable Integer idClass){
-//        return secretaryService.associateUserWithClass
-//                (classroomService.findById(idClass), userService.findById(idUser));
+    public List<ReportCard> generateReportCard(@PathVariable Integer idClass, @RequestParam Integer idSecretary){
+        return secretaryService.generateReportCardByClass(
+                classroomService.findById(idClass),
+                (Secretary) userService.findById(idSecretary));
     }
 
 

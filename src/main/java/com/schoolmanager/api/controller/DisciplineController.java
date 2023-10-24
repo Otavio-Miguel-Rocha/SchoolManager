@@ -12,48 +12,34 @@ import java.util.Collection;
 @RequestMapping("/discipline")
 public class DisciplineController {
     private final DisciplineService disciplineService;
-    private final UserService userService;
 
-    public DisciplineController(DisciplineService disciplineService, UserService userService){
+    public DisciplineController(DisciplineService disciplineService, UserService userService) {
         this.disciplineService = disciplineService;
-        this.userService = userService;
     }
 
     @GetMapping("/{id}")
-    public Discipline findOneById(@PathVariable Integer id, @RequestParam("id_user") Integer idUser){
-        if(userService.findById(idUser).getUserEnum() == UserEnum.SECRETARY){
-            return disciplineService.findById(id);
-        }
-        return null;
+    public Discipline findOneById(@PathVariable Integer id) {
+        return disciplineService.findById(id);
     }
 
     @GetMapping()
-    public Collection<Discipline> findAll(@RequestParam("id_user") Integer idUser){
-        if(userService.findById(idUser).getUserEnum() == UserEnum.SECRETARY){
-            return disciplineService.findAll();
-        }
-        return null;
+    public Collection<Discipline> findAll() {
+        return disciplineService.findAll();
     }
 
-    @DeleteMapping
-    public void delete(@RequestParam("value") Integer id, @RequestParam("id_user") Integer idUser) {
-        if(userService.findById(idUser).getUserEnum() == UserEnum.SECRETARY){
-            disciplineService.delete(id);
-        }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id) {
+        disciplineService.delete(id);
     }
 
     @PostMapping()
-    public void post(@RequestBody Discipline discipline, @RequestParam("id_user") Integer idUser){
-        if(userService.findById(idUser).getUserEnum() == UserEnum.SECRETARY){
-            disciplineService.save(discipline);
-        }
+    public void post(@RequestBody Discipline discipline) {
+        disciplineService.save(discipline);
     }
 
     @PutMapping
-    public void put(@RequestBody Discipline discipline, @RequestParam("id_user") Integer idUser) {
-        if(userService.findById(idUser).getUserEnum() == UserEnum.SECRETARY){
-            disciplineService.save(discipline);
-        }
+    public void put(@RequestBody Discipline discipline) {
+        disciplineService.save(discipline);
     }
 
 }
