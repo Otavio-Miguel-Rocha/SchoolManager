@@ -48,4 +48,13 @@ public class UserService {
     public void delete(Integer id){
         userRepository.deleteById(id);
     }
+
+
+    public User validation(User user){
+        User userValidation = findById(user.getId());
+        if(userValidation.getPassword().equals(user.getPassword())){
+            return userValidation;
+        }
+        return null;
+    }
 }

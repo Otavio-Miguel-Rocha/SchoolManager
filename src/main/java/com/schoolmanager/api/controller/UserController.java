@@ -19,6 +19,11 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/login")
+    public User validation(@RequestBody User user){
+        return userService.validation(user);
+    }
+
     @GetMapping("/{id}")
     public User findOneById(@PathVariable Integer id){
         return userService.findById(id);
