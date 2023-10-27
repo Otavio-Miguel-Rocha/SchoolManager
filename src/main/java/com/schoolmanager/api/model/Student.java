@@ -25,7 +25,6 @@ public class Student extends User {
     @OneToMany(mappedBy = "student")
     private List<Test> tests;
 
-
     public Student(User user){
         super(user);
     }

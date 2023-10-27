@@ -21,4 +21,11 @@ public class Test {
 
     @ManyToOne
     private Discipline discipline;
+
+
+    public Test(double grade, Student student, Discipline discipline){
+        this.grade = grade;
+        this.student = student;
+        this.discipline = discipline;
+    }
 }

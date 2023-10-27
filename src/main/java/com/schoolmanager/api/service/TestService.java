@@ -12,8 +12,8 @@ import java.util.List;
 public class TestService {
 
     private final TestRepository testRepository;
-    public void save(Test test){
-        testRepository.save(test);
+    public Test save(Test test){
+        return testRepository.save(test);
     }
     public Test findById(Integer id){
         return testRepository.findById(id).get();

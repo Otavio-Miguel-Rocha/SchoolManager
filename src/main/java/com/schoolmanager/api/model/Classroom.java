@@ -21,7 +21,6 @@ public class Classroom {
     private String className;
 
     @OneToMany(mappedBy = "classrooms")
-    @JsonIgnore
     private List<Professor> professors;
 
     @OneToMany(mappedBy = "classroom")

@@ -1,5 +1,6 @@
 package com.schoolmanager.api.controller;
 
+import com.schoolmanager.api.model.Professor;
 import com.schoolmanager.api.model.ReportCard;
 import com.schoolmanager.api.model.Secretary;
 import com.schoolmanager.api.model.User;
@@ -14,27 +15,25 @@ import java.util.List;
 @RequestMapping("/secretary")
 public class SecretaryController {
     private final SecretaryService secretaryService;
-    private final ClassroomService classroomService;
-    private final UserService userService;
 
     public SecretaryController(SecretaryService secretaryService, ClassroomService classroomService, UserService userService){
         this.secretaryService = secretaryService;
-        this.classroomService = classroomService;
-        this.userService = userService;
     }
 
     @PutMapping("/class/{idClass}/user/{idUser}")
     public User associateUserWithClass(@PathVariable Integer idClass, @PathVariable Integer idUser){
         return secretaryService.associateUserWithClass
-                (classroomService.findById(idClass), userService.findById(idUser));
+                (idClass, idUser);
     }
 
     @PostMapping("/class/{idClass}")
     public List<ReportCard> generateReportCard(@PathVariable Integer idClass, @RequestParam Integer idSecretary){
-        return secretaryService.generateReportCardByClass(
-                classroomService.findById(idClass),
-                (Secretary) userService.findById(idSecretary));
+        return secretaryService.generateReportCardByClass(idClass, idSecretary);
     }
 
+    @PutMapping("/discipline/{idDiscipline}/professor/{idProfessor}")
+    public Professor associateProfessorWithDiscipline(@PathVariable Integer idDiscipline, @PathVariable Integer idProfessor){
+        return secretaryService.associateProfessorWithDiscipline(idDiscipline, idProfessor);
+    }
 
 }

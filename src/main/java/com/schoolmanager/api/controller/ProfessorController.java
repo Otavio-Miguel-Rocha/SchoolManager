@@ -21,7 +21,7 @@ public class ProfessorController {
     }
 
     @PostMapping("/registerTest/{idClass}")
-    public List<Test> registerTest(@PathVariable Integer idClass, @RequestBody List<Test> tests, @RequestParam Integer idProfessor){
+    public List<Test> registerTest(@PathVariable Integer idClass, @RequestParam Integer idProfessor, @RequestBody List<Test> tests){
         return professorService.registerTest(idClass, idProfessor, tests);
     }
 
