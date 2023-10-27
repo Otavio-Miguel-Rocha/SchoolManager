@@ -1,9 +1,8 @@
 package com.schoolmanager.api.controller;
 
-import com.schoolmanager.api.model.Professor;
-import com.schoolmanager.api.model.ReportCard;
-import com.schoolmanager.api.model.Secretary;
-import com.schoolmanager.api.model.User;
+import com.schoolmanager.api.model.entities.Professor;
+import com.schoolmanager.api.model.DTO.ReportCardDTO;
+import com.schoolmanager.api.model.entities.User;
 import com.schoolmanager.api.service.ClassroomService;
 import com.schoolmanager.api.service.SecretaryService;
 import com.schoolmanager.api.service.UserService;
@@ -27,7 +26,7 @@ public class SecretaryController {
     }
 
     @PostMapping("/class/{idClass}")
-    public List<ReportCard> generateReportCard(@PathVariable Integer idClass, @RequestParam Integer idSecretary){
+    public List<ReportCardDTO> generateReportCard(@PathVariable Integer idClass, @RequestParam Integer idSecretary){
         return secretaryService.generateReportCardByClass(idClass, idSecretary);
     }
 

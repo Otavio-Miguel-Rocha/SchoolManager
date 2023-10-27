@@ -1,6 +1,7 @@
 package com.schoolmanager.api.service;
 
-import com.schoolmanager.api.model.*;
+import com.schoolmanager.api.model.DTO.ReportCardDTO;
+import com.schoolmanager.api.model.entities.*;
 import com.schoolmanager.api.repository.SecretaryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,12 +20,12 @@ public class SecretaryService {
     private final ClassroomService classroomService;
     private final DisciplineService disciplineService;
 
-    public List<ReportCard> generateReportCardByClass(Integer idClassroom, Integer idSecretary) {
+    public List<ReportCardDTO> generateReportCardByClass(Integer idClassroom, Integer idSecretary) {
 
         Classroom classroom = classroomService.findById(idClassroom);
         Secretary secretary = secretaryRepository.findById(idSecretary).get();
 
-        List<ReportCard> reportCards = new ArrayList<>();
+        List<ReportCardDTO> reportCards = new ArrayList<>();
         for (Student student : classroom.getStudents()) {
             reportCards.add(secretary.generateReportCard(student));
         }

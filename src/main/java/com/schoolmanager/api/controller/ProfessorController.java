@@ -1,12 +1,7 @@
 package com.schoolmanager.api.controller;
 
-import com.schoolmanager.api.model.Classroom;
-import com.schoolmanager.api.model.ReportCard;
-import com.schoolmanager.api.model.Test;
-import com.schoolmanager.api.service.ClassroomService;
+import com.schoolmanager.api.model.entities.Test;
 import com.schoolmanager.api.service.ProfessorService;
-import com.schoolmanager.api.service.SecretaryService;
-import com.schoolmanager.api.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

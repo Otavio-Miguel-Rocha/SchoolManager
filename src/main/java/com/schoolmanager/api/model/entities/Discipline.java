@@ -1,4 +1,4 @@
-package com.schoolmanager.api.model;
+package com.schoolmanager.api.model.entities;
 
 
 import jakarta.persistence.*;
@@ -13,11 +13,13 @@ import lombok.NoArgsConstructor;
 public class Discipline {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer disciplineCode;
 
     private String disciplineName;
 
     private Integer workload;
+
+
 
 }
 

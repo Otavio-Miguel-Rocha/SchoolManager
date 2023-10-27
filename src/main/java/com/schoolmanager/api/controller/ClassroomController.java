@@ -1,8 +1,7 @@
 package com.schoolmanager.api.controller;
 
 
-import com.schoolmanager.api.model.Classroom;
-import com.schoolmanager.api.model.Discipline;
+import com.schoolmanager.api.model.entities.Classroom;
 import com.schoolmanager.api.service.ClassroomService;
 import org.springframework.web.bind.annotation.*;
 

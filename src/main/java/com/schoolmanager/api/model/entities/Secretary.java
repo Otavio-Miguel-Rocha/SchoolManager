@@ -1,7 +1,6 @@
-package com.schoolmanager.api.model;
+package com.schoolmanager.api.model.entities;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.persistence.Column;
+import com.schoolmanager.api.model.DTO.ReportCardDTO;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,12 +23,12 @@ public class Secretary extends User{
     }
 
 
-    public ReportCard generateReportCard(Student student){
+    public ReportCardDTO generateReportCard(Student student){
         double sum = 0;
         for (Test test : student.getTests()) {
             sum += test.getGrade();
         }
-        return new ReportCard(student, (sum/student.getTests().size()));
+        return new ReportCardDTO(student, (sum/student.getTests().size()));
     }
 }
 

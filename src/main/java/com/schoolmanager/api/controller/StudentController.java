@@ -1,6 +1,6 @@
 package com.schoolmanager.api.controller;
 
-import com.schoolmanager.api.model.Test;
+import com.schoolmanager.api.model.entities.Test;
 import com.schoolmanager.api.service.StudentService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

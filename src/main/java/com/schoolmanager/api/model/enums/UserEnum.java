@@ -8,5 +8,6 @@ import lombok.Getter;
 public enum UserEnum {
     PROFESSOR(),
     STUDENT(),
-    SECRETARY();
+    SECRETARY(),
+    ADMIN();
 }

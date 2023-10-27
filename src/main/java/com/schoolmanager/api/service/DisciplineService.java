@@ -1,6 +1,6 @@
 package com.schoolmanager.api.service;
 
-import com.schoolmanager.api.model.Discipline;
+import com.schoolmanager.api.model.entities.Discipline;
 import com.schoolmanager.api.repository.DisciplineRespository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

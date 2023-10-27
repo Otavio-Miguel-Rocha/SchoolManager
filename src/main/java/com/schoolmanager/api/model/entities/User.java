@@ -1,4 +1,4 @@
-package com.schoolmanager.api.model;
+package com.schoolmanager.api.model.entities;
 
 import com.schoolmanager.api.model.enums.UserEnum;
 import jakarta.persistence.*;

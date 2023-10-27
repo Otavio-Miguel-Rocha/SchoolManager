@@ -1,4 +1,4 @@
-package com.schoolmanager.api.model;
+package com.schoolmanager.api.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -17,12 +17,13 @@ public class Classroom {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "classname", length = 15, unique = true, nullable = false)
+    @Column(length = 15, unique = true, nullable = false)
     private String className;
 
     @ManyToMany(mappedBy = "classrooms")
     private List<Professor> professors;
 
     @OneToMany(mappedBy = "classroom")
+    @JsonIgnore
     private List<Student> students;
 }

@@ -1,4 +1,4 @@
-package com.schoolmanager.api.model;
+package com.schoolmanager.api.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -8,25 +8,20 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
+@Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-
-public class Student extends User {
-    @ManyToOne
+public class Professor extends User {
+    @ManyToMany
     @JsonIgnore
-    private Classroom classroom;
+    private List<Classroom> classrooms;
+    @ManyToOne
+    private Discipline discipline;
 
-
-    @OneToMany(mappedBy = "student")
-    private List<Test> tests;
-
-    public Student(User user){
+    public Professor(User user){
         super(user);
     }
 }
-

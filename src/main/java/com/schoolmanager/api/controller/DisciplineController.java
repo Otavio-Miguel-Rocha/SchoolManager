@@ -1,7 +1,6 @@
 package com.schoolmanager.api.controller;
 
-import com.schoolmanager.api.model.Discipline;
-import com.schoolmanager.api.model.enums.UserEnum;
+import com.schoolmanager.api.model.entities.Discipline;
 import com.schoolmanager.api.service.DisciplineService;
 import com.schoolmanager.api.service.UserService;
 import org.springframework.web.bind.annotation.*;

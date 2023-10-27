@@ -1,8 +1,7 @@
 package com.schoolmanager.api.service;
 
-import com.schoolmanager.api.model.Professor;
-import com.schoolmanager.api.model.Student;
-import com.schoolmanager.api.model.Test;
+import com.schoolmanager.api.model.entities.Student;
+import com.schoolmanager.api.model.entities.Test;
 import com.schoolmanager.api.repository.StudentRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

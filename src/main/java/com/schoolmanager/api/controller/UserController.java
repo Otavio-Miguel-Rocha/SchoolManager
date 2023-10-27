@@ -1,7 +1,7 @@
 package com.schoolmanager.api.controller;
 
-import com.schoolmanager.api.model.*;
-import com.schoolmanager.api.model.enums.UserEnum;
+import com.schoolmanager.api.model.DTO.UserValidationDTO;
+import com.schoolmanager.api.model.entities.User;
 import com.schoolmanager.api.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +17,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public User validation(@RequestBody UserValidation user){
+    public User validation(@RequestBody UserValidationDTO user){
         return userService.validation(user);
     }
 

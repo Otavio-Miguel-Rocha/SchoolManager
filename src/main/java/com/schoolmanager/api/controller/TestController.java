@@ -1,9 +1,7 @@
 package com.schoolmanager.api.controller;
 
-import com.schoolmanager.api.model.Test;
-import com.schoolmanager.api.model.User;
+import com.schoolmanager.api.model.entities.Test;
 import com.schoolmanager.api.service.TestService;
-import com.schoolmanager.api.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
