@@ -1,5 +1,6 @@
 package com.schoolmanager.api.service;
 
+import com.schoolmanager.api.model.DTO.TestDTO;
 import com.schoolmanager.api.model.entities.Classroom;
 import com.schoolmanager.api.model.entities.Professor;
 import com.schoolmanager.api.model.entities.Test;
@@ -16,15 +17,18 @@ public class ProfessorService {
     private final ProfessorRepository professorRepository;
     private final ClassroomService classroomService;
     private final TestService testService;
+    private final StudentService studentService;
 
-    public List<Test> registerTest(Integer idClass, Integer idProfessor, List<Test> tests){
+    public List<Test> registerTest(Integer idClass, Integer idProfessor, List<TestDTO> tests){
         Classroom classroom = classroomService.findById(idClass);
         Professor professor = professorRepository.findById(idProfessor).get();
 
         List<Test> testsReturn = new ArrayList<>();
         if(classroom.getProfessors().contains(professor)){
-            for ( Test test : tests) {
-                testsReturn.add(testService.save(new Test(test.getGrade(), test.getStudent() , professor.getDiscipline())));
+            for ( TestDTO testDTO : tests) {
+                Test test = new Test(testDTO.getGrade(), studentService.findById(testDTO.getIdStudent()) , professor.getDiscipline());
+                testsReturn.add(test);
+                testService.save(test);
             }
             return testsReturn;
         } else{
