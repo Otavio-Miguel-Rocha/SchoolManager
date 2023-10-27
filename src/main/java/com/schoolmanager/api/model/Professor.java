@@ -16,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Professor extends User {
     @ManyToMany
+    @JsonIgnore
     private List<Classroom> classrooms;
     @ManyToOne
     private Discipline discipline;

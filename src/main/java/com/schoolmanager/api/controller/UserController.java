@@ -1,10 +1,7 @@
 package com.schoolmanager.api.controller;
 
 import com.schoolmanager.api.model.*;
-<<<<<<< HEAD
-=======
 import com.schoolmanager.api.model.enums.UserEnum;
->>>>>>> 8f516c78ccc2f5d8c2debfd628d4c85bba814946
 import com.schoolmanager.api.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
